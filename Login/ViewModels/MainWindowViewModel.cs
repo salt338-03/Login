@@ -15,18 +15,6 @@ namespace Login.ViewModels
         Dictionary<string, string> IdPw = new Dictionary<string, string>();
         Dictionary<string, string> IDNum = new Dictionary<string, string>();
 
-        private string _title = "Prism Application";
-        public string Title
-        {
-            get { return _title; }
-            set { SetProperty(ref _title, value); }
-        }
-        private string _selectedFilePath;
-        public string SelectedFilePath
-        {
-            get => _selectedFilePath;
-            set => SetProperty(ref _selectedFilePath, value);
-        }
         private string _ID;
         public string ID
         {
