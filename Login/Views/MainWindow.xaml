@@ -1,0 +1,45 @@
+﻿<Window x:Class="Login.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:prism="http://prismlibrary.com/"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        Title="{Binding Title}" Height="350" Width="525" >
+    <Grid>
+        <ContentControl prism:RegionManager.RegionName="ContentRegion" />
+        <!-- 제목 -->
+        <TextBlock Text="로그인" FontSize="20" FontWeight="Bold" 
+                   HorizontalAlignment="Center" Margin="0,20,0,0" />
+
+        <!-- 사용자 입력 영역 -->
+        <Grid Margin="20,80,20,60">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- 사용자 이름 -->
+            <TextBlock Text="사용자 이름:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,0" />
+            <TextBox x:Name="UsernameTextBox" Grid.Row="0" Grid.Column="1" Height="30" 
+             Text="{Binding ID, UpdateSourceTrigger=PropertyChanged}" />
+
+
+            <!-- 비밀번호 -->
+            <TextBlock Text="비밀번호:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,0" />
+            <TextBox x:Name="PasswordBox" Grid.Row="2" Grid.Column="1" Height="30" Text="{Binding PW, UpdateSourceTrigger=PropertyChanged}" />
+        </Grid>
+
+        <!-- 버튼 -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,20">
+            <Button Content="로그인" Width="100" Margin="10,0"  Command="{Binding Check}"/>
+            <Button Content="취소" Width="100" Margin="10,0" />
+            <Button Content="파일" Width="100" Click="OpenFileDialog_Executed" />
+        </StackPanel>
+    </Grid>
+</Window>
